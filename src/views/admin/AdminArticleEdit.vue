@@ -5,6 +5,7 @@ import { api } from '../../api'
 import { slugify, nowLocalInput, toLocalInput, fromLocalInput } from '../../lib/format'
 import { useToast } from '../../composables/useToast'
 import MarkdownEditor from '../../components/MarkdownEditor.vue'
+import DatePicker from '../../components/DatePicker.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -141,8 +142,9 @@ async function save() {
             <p v-if="isNew" class="hint">Генерируется из заголовка, но можно изменить вручную</p>
           </div>
           <div class="field">
-            <label for="f-date">Дата публикации</label>
-            <input id="f-date" v-model="date" class="input" type="datetime-local" />
+            <label>Дата и время публикации</label>
+            <DatePicker v-model="date" />
+            <p v-if="isNew" class="hint">Указывает дату публикации</p>
           </div>
         </div>
 
