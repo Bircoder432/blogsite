@@ -27,9 +27,7 @@ export async function api(method, path, body) {
       const data = await res.json()
       if (data && data.error) message = data.error
     } catch {
-      /* тело не в формате JSON */
     }
-    // Сессия истекла (сервер перезапущен) — сбрасываем токен
     if (res.status === 401 && path.startsWith('/admin')) {
       useAuth().clearToken()
       useToast().push('Сессия истекла, войдите заново', 'error')
