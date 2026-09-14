@@ -1,6 +1,7 @@
 import { useAuth } from './composables/useAuth'
 import { useToast } from './composables/useToast'
 
+export const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '')
 export class ApiError extends Error {
   constructor(message, status) {
     super(message)
@@ -11,7 +12,7 @@ export class ApiError extends Error {
 export async function api(method, path, body) {
   const token = localStorage.getItem('auth_token')
 
-  const res = await fetch('/api' + path, {
+    const res = await fetch(`${API_BASE}/api${path}`, {
     method,
     headers: {
       'Content-Type': 'application/json',
