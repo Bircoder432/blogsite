@@ -2354,3 +2354,104 @@ ul, ol {
   grid-template-columns: minmax(0, 1fr) minmax(0, 290px);
   gap: 1rem;
 }
+
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(1100px 520px at 88% -12%, var(--accent-glow), transparent 62%),
+    radial-gradient(900px 480px at -12% 112%, var(--accent-glow), transparent 58%),
+    var(--bg);
+}
+
+.splash-inner {
+  display: grid;
+  justify-items: center;
+  gap: 1.15rem;
+  padding: 1rem;
+}
+
+.splash-logo {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  color: #fff;
+  font-size: 2.3rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  box-shadow: 0 14px 34px var(--accent-glow);
+  animation: splash-float 2.4s ease-in-out infinite;
+}
+
+@keyframes splash-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.splash-track {
+  width: 172px;
+  height: 4px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--accent-soft);
+}
+
+.splash-fill {
+  display: block;
+  width: 45%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent-hover), var(--accent));
+  animation: splash-slide 1.15s ease-in-out infinite;
+}
+
+@keyframes splash-slide {
+  0% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: translateX(246%);
+  }
+}
+
+.splash-caption {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+/* Появление и уход */
+.splash-enter-active {
+  transition: opacity 0.2s ease;
+}
+
+.splash-leave-active {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.splash-enter-from,
+.splash-leave-to {
+  opacity: 0;
+}
+
+.splash-leave-to {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-logo,
+  .splash-fill {
+    animation: none;
+  }
+}
