@@ -5,29 +5,34 @@
         <i class="ri-heart-fill donate-icon"></i> Поддержать проект
       </h1>
       <p class="donate-subtitle">
-        Если вам нравится мой блог и вы хотите помочь с оплатой серверов, доменов и развития проекта, вы можете сделать это через форму ниже. Каждая поддержка невероятно важна. Спасибо!
+        Если вам нравится мой блог и вы хотите помочь с оплатой серверов, доменов и дальнейшего развития проекта, вы можете сделать это через безопасный перевод. Каждая поддержка невероятно важна. Спасибо!
       </p>
 
-      <div class="widget-wrapper">
-        <h3 class="widget-heading">На поддержание инфраструктуры</h3>
-        <div class="iframe-container">
-          <iframe
-            src="https://yoomoney.ru/quickpay/fundraise/widget?billNumber=1LFJ9O8MNG0.261110&"
-            width="100%"
-            height="480"
-            frameborder="0"
-            allowtransparency="true"
-            scrolling="no"
-            style="border-radius: 12px;"
-          ></iframe>
+      <div class="donate-widget">
+        <div class="widget-header">
+          <i class="ri-wallet-3-line widget-icon"></i>
+          <h3 class="widget-title">На поддержание инфраструктуры</h3>
         </div>
+        <p class="widget-description">
+          Перевод осуществляется через защищенный шлюз ЮMoney. Вы можете использовать банковскую карту или кошелек ЮMoney.
+        </p>
+        <a
+          href="https://yoomoney.ru/to/4100117987099836"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="donate-button"
+        >
+          <i class="ri-bank-card-line"></i>
+          <span>Перейти к переводу</span>
+          <i class="ri-arrow-right-up-line"></i>
+        </a>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-// Логика не требуется, это статичная страница с виджетом
+<script setup lang="ts">
+// Логика не требуется, это статичная страница
 </script>
 
 <style scoped>
@@ -62,7 +67,7 @@
 }
 
 .donate-subtitle {
-  color: var(--text-soft);
+  color: var(--text-secondary);
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2.5rem;
@@ -71,25 +76,67 @@
   margin-right: auto;
 }
 
-.widget-wrapper {
-  background: var(--bg-body);
+.donate-widget {
+  background-color: var(--bg-body);
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: 2rem;
   border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-.widget-heading {
+.widget-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.widget-icon {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.widget-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text);
-  margin-bottom: 1rem;
+  color: var(--text-primary);
+  margin: 0;
 }
 
-.iframe-container {
-  display: flex;
-  justify-content: center;
-  max-width: 500px;
-  margin: 0 auto;
+.widget-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 450px;
+  margin: 0;
+}
+
+.donate-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  margin-top: 0.5rem;
+}
+
+.donate-button:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
+}
+
+.donate-button:active {
+  transform: translateY(0);
 }
 
 @keyframes heartbeat {
@@ -107,8 +154,12 @@
   .donate-title {
     font-size: 1.5rem;
   }
-  .iframe-container iframe {
-    height: 420px;
+  .donate-widget {
+    padding: 1.5rem 1rem;
+  }
+  .donate-button {
+    width: 100%;
+    justify-content: center;
   }
 }
 </style>
