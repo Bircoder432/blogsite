@@ -183,7 +183,7 @@ const { theme } = useTheme()
 }
 
 .bingo-card .card-link {
-  color: #22d3ee;
+  color: #e879f9;
 }
 
 .bingo-card .card-content p {
