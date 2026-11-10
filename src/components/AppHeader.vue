@@ -20,6 +20,10 @@ const { theme, toggle } = useTheme()
         <RouterLink to="/blog" class="nav-link" active-class="active">
           <i class="ri-article-line"></i><span>Блог</span>
         </RouterLink>
+        <!-- Добавляем ссылку на проекты -->
+        <RouterLink to="/sites" class="nav-link" active-class="active">
+          <i class="ri-apps-2-line"></i><span>Проекты</span>
+        </RouterLink>
       </nav>
 
       <button
