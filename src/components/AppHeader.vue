@@ -24,6 +24,9 @@ const { theme, toggle } = useTheme()
         <RouterLink to="/sites" class="nav-link" active-class="active">
           <i class="ri-apps-2-line"></i><span>Проекты</span>
         </RouterLink>
+        <RouterLink to="/donate" class="nav-link donate-link" active-class="active">
+                  <i class="ri-heart-fill"></i><span>Поддержать</span>
+        </RouterLink>
       </nav>
 
       <button

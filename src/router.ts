@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import DonateView from './views/DonateView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,6 +15,7 @@ const router = createRouter({
         { path: 'blog', name: 'blog', component: () => import('./views/BlogView.vue') },
         { path: 'blog/:slug', name: 'article', component: () => import('./views/ArticleView.vue') },
         { path: 'sites', name: 'sites', component: () => import('./views/MySitesView.vue') },
+         { path: '/donate', name: 'donate', component: DonateView },
         { path: ':pathMatch(.*)*', name: 'not-found', component: () => import('./views/NotFoundView.vue') },
       ],
     },
